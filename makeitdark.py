@@ -346,7 +346,7 @@ if not os.path.isfile(slack_theme_path):
     print("New injection file is {0}".format(slack_theme_path))
 
 if undo_mode:
-    with open(slack_theme_path, "r+") as f:
+    with open(slack_theme_path, "r+", encoding="utf-8") as f:
         s = ""
         if BEGIN_MARKER not in f.read():
             print("Dark theme not yet injected")
@@ -363,7 +363,7 @@ if undo_mode:
                 print("Dark theme injected")
 
 else:
-    with open(slack_theme_path, "r+") as f:
+    with open(slack_theme_path, "r+", encoding="utf-8") as f:
         if BEGIN_MARKER in f.read():
             print("Dark theme already injected")
         else:
@@ -383,4 +383,4 @@ if performed_asar_operation:
     print("Cleaning up...")
     shutil.rmtree(asar_tmpdirpath)
     
-print("All done, please restart Slack!")
+print("All done, please restart Slack!") 
